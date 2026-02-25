@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haru</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 16px;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.7;
+            color: #e1e1e1;
+            background-color: #191919;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .policy-page {
+            display: none;
+        }
+        .policy-page.active {
+            display: block;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 96px;
+            min-height: 100vh;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 48px 24px;
+            }
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+        p {
+            margin-bottom: 12px;
+            color: #e1e1e1;
+        }
+        ol, ul {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+            color: #e1e1e1;
+        }
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            border: 1px solid #373737;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #373737;
+            padding: 12px 16px;
+            text-align: left;
+        }
+        th {
+            background-color: #292929;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        td {
+            background-color: #191919;
+        }
+        tr:hover td {
+            background-color: #222222;
+        }
+        .note {
+            font-size: 0.875rem;
+            color: #999999;
+        }
+        .section {
+            margin-bottom: 32px;
+        }
+        .section:first-of-type h2 {
+            margin-top: 0;
+        }
+        .addendum {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid #373737;
+        }
+        a {
+            color: hsl(217, 50%, 58%);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ::selection {
+            background-color: hsl(217, 50%, 58%);
+            color: #ffffff;
+        }
+        .page-icon {
+            width: 125px;
+            height: 125px;
+            margin-bottom: 16px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="policy-page" class="policy-page">
+        <div class="container">
+            <img src="book-closed_gray.svg" alt="" class="page-icon">
+            <div id="content"></div>
+        </div>
+    </div>
+
+    <script>
+        const pages = {
+            privacy: {
+                ko: {
+                    title: '개인정보처리방침 - 하루',
+                    lang: 'ko',
+                    content: `
+        <h1>개인정보처리방침</h1>
+
+        <div class="section">
+            <h2>서문</h2>
+            <p>주식회사 아날로그랩(이하 "회사")은 "하루(Haru)" 서비스(이하 "서비스") 이용자의 개인정보를 보호하고 관련 고충을 신속하게 처리하기 위해 다음과 같이 개인정보처리방침을 수립·공개합니다.</p>
+        </div>
+
+        <div class="section">
+            <h2>제1조 개인정보 수집 항목 및 방법</h2>
+            <p>회사는 서비스 운영을 위한 별도의 서버를 운영하지 않으며, 이용자의 개인정보를 직접 수집·저장하지 않습니다.</p>
+            <p>이용자가 서비스에서 작성하는 모든 데이터(일기 텍스트, 이미지 등)는 이용자 본인의 기기 및 Apple iCloud에만 저장됩니다.</p>
+
+            <p><strong>자동 수집 항목:</strong></p>
+            <ul>
+                <li>없음 — 회사는 기기 정보, 이용 로그, 광고 식별자 등 어떠한 정보도 자동 수집하지 않습니다.</li>
+            </ul>
+
+            <p><strong>이용자 입력 항목:</strong></p>
+            <ul>
+                <li>일기 텍스트, 이미지, 앱 설정값</li>
+                <li class="note">※ 상기 항목은 모두 이용자의 기기 및 iCloud 계정에만 저장되며, 회사 서버로 전송되지 않습니다.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>제2조 개인정보 처리 목적</h2>
+            <p>회사는 이용자의 개인정보를 수집하지 않으므로, 별도의 처리 목적이 없습니다.</p>
+            <p>서비스의 모든 기능은 이용자의 기기 내에서 로컬로 처리되며, iCloud 동기화는 Apple의 iCloud 서비스를 통해 이용자 본인의 계정 내에서만 이루어집니다.</p>
+        </div>
+
+        <div class="section">
+            <h2>제3조 개인정보의 제3자 제공</h2>
+            <p>회사는 이용자의 개인정보를 제3자에게 제공하지 않습니다.</p>
+            <p>iCloud를 통한 데이터 동기화는 Apple의 개인정보처리방침에 따르며, 회사는 이 과정에 관여하지 않습니다.</p>
+        </div>
+
+        <div class="section">
+            <h2>제4조 개인정보의 보유 및 파기</h2>
+            <p>회사는 이용자의 개인정보를 보유하지 않으므로, 별도의 파기 절차가 없습니다.</p>
+            <p>이용자가 앱을 삭제하면 기기에 저장된 모든 데이터가 삭제됩니다. iCloud에 저장된 데이터는 이용자가 직접 Apple iCloud 설정에서 삭제할 수 있습니다.</p>
+        </div>
+
+        <div class="section">
+            <h2>제5조 이용자의 권리</h2>
+            <p>이용자는 언제든지 다음의 권리를 행사할 수 있습니다:</p>
+            <ol>
+                <li>앱 내 데이터의 열람, 수정, 삭제</li>
+                <li>앱 삭제를 통한 기기 내 전체 데이터 삭제</li>
+                <li>iCloud 설정을 통한 클라우드 데이터 삭제</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>제6조 개인정보의 안전성 확보 조치</h2>
+            <p>서비스의 데이터는 이용자의 기기 및 iCloud에만 저장되므로, 데이터의 보안은 Apple의 기기 보안 및 iCloud 보안 정책에 따릅니다.</p>
+        </div>
+
+        <div class="section">
+            <h2>제7조 개인정보 보호책임자</h2>
+            <table>
+                <tr>
+                    <th>구분</th>
+                    <th>내용</th>
+                </tr>
+                <tr>
+                    <td>회사명</td>
+                    <td>주식회사 아날로그랩</td>
+                </tr>
+                <tr>
+                    <td>담당자</td>
+                    <td>개인정보 보호책임자</td>
+                </tr>
+                <tr>
+                    <td>이메일</td>
+                    <td><a href="mailto:analoglab.io@gmail.com">analoglab.io@gmail.com</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>제8조 방침 변경</h2>
+            <p>이 개인정보처리방침은 법령, 정책 또는 서비스 변경에 따라 수정될 수 있으며, 변경 시 앱 내 공지를 통해 안내합니다.</p>
+        </div>
+
+        <div class="addendum">
+            <h2>부칙 (2026년 2월 25일)</h2>
+            <p>이 개인정보처리방침은 2026년 2월 25일부터 시행합니다.</p>
+        </div>
+                    `
+                },
+                en: {
+                    title: 'Privacy Policy - Haru',
+                    lang: 'en',
+                    content: `
+        <h1>Privacy Policy</h1>
+
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>Analoglab Inc. (hereinafter "the Company") establishes and discloses this Privacy Policy to protect the personal information of users of the "Haru" service (hereinafter "the Service") and to promptly address related concerns.</p>
+        </div>
+
+        <div class="section">
+            <h2>Article 1. Information Collected and Methods of Collection</h2>
+            <p>The Company does not operate separate servers for the Service and does not directly collect or store users' personal information.</p>
+            <p>All data created by users within the Service (diary text, images, etc.) is stored only on the user's device and in their Apple iCloud account.</p>
+
+            <p><strong>Automatically Collected Information:</strong></p>
+            <ul>
+                <li>None — The Company does not automatically collect any information such as device information, usage logs, or advertising identifiers.</li>
+            </ul>
+
+            <p><strong>User-Provided Information:</strong></p>
+            <ul>
+                <li>Diary text, images, and app settings</li>
+                <li class="note">※ All of the above items are stored only on the user's device and iCloud account and are not transmitted to the Company's servers.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Article 2. Purpose of Processing Personal Information</h2>
+            <p>As the Company does not collect users' personal information, there is no separate purpose for processing.</p>
+            <p>All features of the Service are processed locally on the user's device, and iCloud synchronization occurs only within the user's own account through Apple's iCloud service.</p>
+        </div>
+
+        <div class="section">
+            <h2>Article 3. Provision of Personal Information to Third Parties</h2>
+            <p>The Company does not provide users' personal information to third parties.</p>
+            <p>Data synchronization through iCloud is governed by Apple's Privacy Policy, and the Company is not involved in this process.</p>
+        </div>
+
+        <div class="section">
+            <h2>Article 4. Retention and Destruction of Personal Information</h2>
+            <p>As the Company does not retain users' personal information, there is no separate destruction procedure.</p>
+            <p>When a user deletes the app, all data stored on the device is deleted. Data stored in iCloud can be deleted by the user directly through Apple iCloud settings.</p>
+        </div>
+
+        <div class="section">
+            <h2>Article 5. User Rights</h2>
+            <p>Users may exercise the following rights at any time:</p>
+            <ol>
+                <li>View, modify, and delete data within the app</li>
+                <li>Delete all data on the device by deleting the app</li>
+                <li>Delete cloud data through iCloud settings</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Article 6. Measures for Ensuring Security of Personal Information</h2>
+            <p>Since the Service's data is stored only on the user's device and iCloud, data security follows Apple's device security and iCloud security policies.</p>
+        </div>
+
+        <div class="section">
+            <h2>Article 7. Privacy Officer</h2>
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>Company</td>
+                    <td>Analoglab Inc.</td>
+                </tr>
+                <tr>
+                    <td>Contact</td>
+                    <td>Privacy Officer</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><a href="mailto:analoglab.io@gmail.com">analoglab.io@gmail.com</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Article 8. Changes to This Policy</h2>
+            <p>This Privacy Policy may be revised in accordance with changes in laws, policies, or the Service. Any changes will be announced through in-app notifications.</p>
+        </div>
+
+        <div class="addendum">
+            <h2>Addendum (February 25, 2026)</h2>
+            <p>This Privacy Policy is effective as of February 25, 2026.</p>
+        </div>
+                    `
+                }
+            }
+        };
+
+        function getParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                page: params.get('page'),
+                lang: params.get('lang') || 'ko'
+            };
+        }
+
+        function renderPolicyPage(page, lang) {
+            document.getElementById('policy-page').classList.add('active');
+
+            const pageData = pages[page]?.[lang] || pages[page]?.ko || pages.privacy.ko;
+
+            document.documentElement.lang = pageData.lang;
+            document.title = pageData.title;
+            document.getElementById('content').innerHTML = pageData.content;
+        }
+
+        function render() {
+            const { page, lang } = getParams();
+            renderPolicyPage(page || 'privacy', lang);
+        }
+
+        render();
+    </script>
+</body>
+</html>
